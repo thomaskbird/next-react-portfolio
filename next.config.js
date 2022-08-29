@@ -1,5 +1,6 @@
 const withSourceMaps = require('@zeit/next-source-maps')()
 const withOffline = require('next-offline')
+const path = require('path')
 
 const setup = require('./lib/setup')
 
@@ -20,6 +21,9 @@ const nextConfig = phase => {
           urlPattern: /^https?.*/
         }
       ]
+    },
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')]
     },
     crossOrigin: 'anonymous',
     target: 'server',

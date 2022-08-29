@@ -1,5 +1,6 @@
+import { NextPage } from 'next'
 import React from 'react'
 
-const IndexView = () => <h1>Index View</h1>
+const IndexView: NextPage = () => <h1>Index View</h1>
 
 export default IndexView

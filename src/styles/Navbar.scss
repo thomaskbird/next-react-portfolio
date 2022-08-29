@@ -1,0 +1,92 @@
+.Navbar {
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: row;
+
+  &__inner {
+    display: flex;
+
+    @media(max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &__mobile-menu-btn {
+    @media(min-width: 601px) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @media(max-width: 600px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    h1 {
+      color: #555;
+      letter-spacing: 1rem;
+      text-transform: uppercase;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media(max-width: 600px) {
+      display: none;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+
+      &.open {
+        display: flex;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      @media(max-width: 600px) {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      li {
+
+        @media(max-width: 600px) {
+          display: flex;
+        }
+
+        a {
+          flex: 1;
+          padding: 1rem 2rem;
+          font-weight: 400;
+          font-size: 2.6rem;
+          letter-spacing: .6rem;
+          text-decoration: none;
+          color: rgba(0,0,0,.2);
+          text-transform: uppercase;
+          font-family: trumpsoftpro,sans-serif;
+
+          &.active,
+          &:hover {
+            color: rgba(255,0,50,1);
+          }
+        }
+      }
+    }
+  }
+}
