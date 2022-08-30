@@ -1,5 +1,15 @@
 .animated {
-  animation: all .5s ease-in;
+  transition-duration: 250ms;
+  transition-property: all;
+  transition-timing-function: ease-in;
+}
+
+.animated-500ms {
+  transition-duration: 500ms;
+}
+
+.animated-1000ms {
+  transition-duration: 1000ms;
 }
 
 .container {

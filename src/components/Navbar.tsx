@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { NavItems as navItems } from './Navitems'
+import { NavItems as navItems } from '~/utils/Navitems'
 import { useRouter } from 'next/router'
 
 const COMPONENT_NAME = 'Navbar'
