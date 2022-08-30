@@ -1,11 +1,13 @@
 import {
-  TOGGLE_IS_LOADING
+  TOGGLE_IS_LOADING,
+  ERRORS_ADD
 } from '~/redux/actions-general'
 
 import { GeneralState } from '~/types/types'
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  errors: []
 }
 
 function generalReducer(state: GeneralState = initialState, data: any): any {
@@ -14,6 +16,14 @@ function generalReducer(state: GeneralState = initialState, data: any): any {
       return {
         ...state,
         isLoading: !state.isLoading
+      }
+    case ERRORS_ADD:
+      const newErrors = [...state.errors];
+      newErrors.push(data.error);
+
+      return {
+        ...state,
+        errors: newErrors
       }
     default:
       return state;

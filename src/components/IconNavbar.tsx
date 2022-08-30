@@ -8,14 +8,16 @@ import { connect } from 'react-redux'
 const COMPONENT_NAME = 'IconNavbar';
 
 interface IconNavbarBaseProps {
-  isLoading: boolean
+  isLoading: boolean,
+  errors: any
 }
 
-const IconNavbarBase = ({ isLoading }: IconNavbarBaseProps) => {
+const IconNavbarBase = ({ isLoading, errors }: IconNavbarBaseProps) => {
   const router = useRouter()
   const { asPath } = router
 
   useEffect(() => console.log('isLoading', isLoading), [isLoading]);
+  useEffect(() => console.log('errors', errors), [errors]);
 
   return (
     <div className={`${COMPONENT_NAME}`}>
@@ -33,7 +35,8 @@ const IconNavbarBase = ({ isLoading }: IconNavbarBaseProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  isLoading: state.general.isLoading
+  isLoading: state.general.isLoading,
+  errors: state.general.errors
 })
 
 const IconNavbar = connect(mapStateToProps)(IconNavbarBase);
