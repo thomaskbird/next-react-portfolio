@@ -6,7 +6,6 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document'
-
 import { CSP } from '~/components/csp'
 
 export default class MyDocument extends Document {
