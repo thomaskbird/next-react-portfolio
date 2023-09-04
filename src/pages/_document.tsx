@@ -9,9 +9,11 @@ import Document, {
 import { CSP } from '~/components/csp'
 
 export default class MyDocument extends Document {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   public static async getInitialProps (ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx)
+
     try {
-      const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
         styles: [
@@ -21,6 +23,7 @@ export default class MyDocument extends Document {
     } catch (e) {
       console.log('Error: ', e)
     }
+
   }
 
   public render () {

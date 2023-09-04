@@ -12,7 +12,7 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
-    "dev": "next dev -p 4000",
+    "dev": "next dev -p 4002",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
     "lint": "eslint --cache --ext .js,.ts,.tsx ./ --fix",
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
@@ -29,15 +29,19 @@
     }
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@reduxjs/toolkit": "^1.8.5",
     "@svgr/webpack": "5.4.0",
     "lodash": "^4.17.19",
+    "moment": "^2.29.4",
     "next": "^12.0",
     "next-offline": "5.0.2",
     "react": "^18.0",
     "react-dom": "^18.0",
+    "react-ga": "^3.3.1",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "sass": "^1.54.5",
