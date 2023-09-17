@@ -8,6 +8,13 @@ export interface GeneralState {
   errors: Error[];
 }
 
+export interface SiteTypes {
+  dateTimeFormat: string;
+  dayFormat: string;
+  momentFormat: string;
+  momentFormatWoTimestamp: string;
+}
+
 export enum ContentStatus {
   published = "published",
   draft = "draft",

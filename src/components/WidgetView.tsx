@@ -29,11 +29,10 @@ const WidgetView = ({ title, isOpenProp, children }: WidgetViewProps) => {
   return (
     <div className="widget">
       <div className="widget-title" onClick={() => toggleOpen()}>
-        {title}:
-        <FontAwesomeIcon
-          className="widget-title-icon"
-          icon={isOpen ? "chevron-up" : "chevron-down"}
-        />
+        {title}:{/* <FontAwesomeIcon */}
+        {/*   className="widget-title-icon" */}
+        {/*   icon={isOpen ? "chevron-up" : "chevron-down"} */}
+        {/* /> */}
       </div>
       <div className={isOpen ? "widget-body open" : "widget-body"}>
         {children}

@@ -71,6 +71,7 @@ export class Api {
 
   public send(url: string, config: object): any {
     const qualifiedUrl = this.config.apiUrl + url;
+    console.log("qualifiedUrl", qualifiedUrl);
     return fetch(qualifiedUrl, config)
       .catch((err) => {
         console.log("Error: ", err);

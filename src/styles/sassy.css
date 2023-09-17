@@ -73,6 +73,15 @@ h5 {
   color: #54345f;
 }
 
+.resume-experience ul {
+  padding: 0 0 0 35px;
+  list-style: circle;
+}
+.resume-experience ul li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
 pre {
   background: #fff;
   max-height: 350px;
@@ -146,7 +155,7 @@ pre {
 .content-main h4,
 .content-main h5 {
   letter-spacing: 5px;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .content-sidebar {
   flex: 1 0 0;
@@ -221,7 +230,7 @@ pre {
   }
 }
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 10px;
 }
 
@@ -786,7 +795,7 @@ h2 {
   margin-bottom: 30px;
 }
 .ResumeAbout h2 {
-  font-size: 4.4rem;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 .ResumeAbout a {
@@ -828,6 +837,9 @@ h2 {
 .ResumeItem-content {
   flex: 4 0 0;
   padding-left: 30px;
+}
+.ResumeItem-content-header {
+  margin-bottom: 20px;
 }
 .ResumeItem-content-header-left-company {
   margin: 0;

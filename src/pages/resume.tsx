@@ -6,6 +6,9 @@ import LoadingIndicator from "../components/LoadingIndicator";
 import { Job } from "../types/types";
 import ResumeItem from "../components/ResumeItem";
 import ResumeAbout from "../components/ResumeAbout";
+import { getDocs, QuerySnapshot } from "firebase/firestore";
+import { queryAllJobsOrdered } from "~/services/firebase";
+import { makeArrayFromSnapshot } from "~/utils/makeNewArray";
 
 interface ResumeViewProps {
   /**
@@ -20,49 +23,46 @@ const Resume: NextPage<ResumeViewProps> = (onReady) => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentReady, setCurrentReady] = useState(0);
 
-  useEffect(() => {
-    setApi(new Api());
+  const retrieveAllJobs = async () => {
+    const jobsSnapshot: QuerySnapshot = await getDocs(queryAllJobsOrdered);
+    setIsLoading(false);
+    const jobRecordsFromDb = makeArrayFromSnapshot(jobsSnapshot);
+    setJobs(jobRecordsFromDb);
+  };
 
-    if (api) {
-      api.get("/resume").then((jobs: Job[]) => {
-        setJobs(jobs);
-        setIsLoading(false);
-      });
-    }
+  useEffect(() => {
+    retrieveAllJobs();
   }, []);
 
   return (
-    <>
-      <LoadingIndicator isLoading={isLoading} />
-      <div className="container-outer">
-        <div className="container-inner row">
-          <div className="content-main">
-            <ResumeAbout />
+    <div className="container-outer">
+      <div className="container-inner row">
+        <div className="content-main">
+          <ResumeAbout />
 
-            <div className="resume-experience">
-              <h2>Experience</h2>
+          <div className="resume-experience">
+            <h2>Experience</h2>
 
-              {jobs.map((item: Job, idx: number) => {
-                return (
-                  <ResumeItem
-                    key={idx}
-                    resume={item}
-                    idx={idx}
-                    onReady={() => {
-                      setCurrentReady((prev) => prev++);
-                      if (currentReady === jobs.length) {
-                        onReady();
-                      }
-                    }}
-                  />
-                );
-              })}
-            </div>
+            {jobs.map((item: Job, idx: number) => {
+              return (
+                <ResumeItem
+                  key={idx}
+                  resume={item}
+                  idx={idx}
+                  onReady={() => {
+                    setCurrentReady((prev) => prev++);
+                    if (currentReady === jobs.length) {
+                      onReady();
+                    }
+                  }}
+                />
+              );
+            })}
           </div>
-          <SidebarView />
         </div>
+        <SidebarView />
       </div>
-    </>
+    </div>
   );
 };
 

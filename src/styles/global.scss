@@ -86,6 +86,18 @@ h5 {
   }
 }
 
+.resume-experience {
+  ul {
+    padding: 0 0 0 35px;
+    list-style: circle;
+
+    li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
 pre {
   background: #fff;
   max-height: 350px;

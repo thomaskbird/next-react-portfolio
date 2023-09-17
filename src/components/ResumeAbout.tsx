@@ -10,21 +10,13 @@ interface ResumeAboutProps {
 }
 
 const ResumeAbout = ({ hideIcon }: ResumeAboutProps) => {
-  let icon: any = "";
-
-  if (!hideIcon) {
-    icon = (
-      <Link href="/resume/print">
-        <FontAwesomeIcon icon="print" />
-      </Link>
-    );
-  }
-
   return (
     <div className="ResumeAbout">
       <h2>
         About me
-        {icon}
+        <Link href="/resume/print">
+          <small>Print</small>
+        </Link>
       </h2>
 
       <p>

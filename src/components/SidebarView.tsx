@@ -27,69 +27,61 @@ const SidebarView = () => {
   const [searchTerm, setSearchTerm] = useState(undefined);
   const [api, setApi] = useState(undefined);
 
-  useEffect(() => {
-    setApi(new Api());
-
-    if (api) {
-      api!
-        .get("/sidebar_data")
-        .then((sidebarData: any) => {
-          setSidebarData({
-            recentPosts: sidebarData.recent_posts,
-            tags: sidebarData.tags,
-          });
-          setIsLoading(false);
-          const fontSizesArr = generateFontSizes(sidebarData.tags.length);
-          setFontSizes(fontSizesArr);
-        })
-        .finally(() => {
-          console.log("test");
-        });
-    }
-  }, []);
+  // useEffect(() => {
+  //   setApi(new Api());
+  //
+  //   if (api) {
+  //     api!
+  //       .get("/sidebar_data")
+  //       .then((sidebarData: any) => {
+  //         setSidebarData({
+  //           recentPosts: sidebarData.recent_posts,
+  //           tags: sidebarData.tags,
+  //         });
+  //         setIsLoading(false);
+  //         const fontSizesArr = generateFontSizes(sidebarData.tags.length);
+  //         setFontSizes(fontSizesArr);
+  //       })
+  //       .finally(() => {
+  //         console.log("test");
+  //       });
+  //   }
+  // }, []);
 
   return (
-    <>
-      {isLoading ? (
-        <div className="content-sidebar" role="complementary">
-          <LoadingIndicator isLoading={isLoading} />
-        </div>
-      ) : (
-        <div className="content-sidebar" role="complementary">
-          <WidgetView title="Search" isOpen={true}>
-            <SearchForm />
-          </WidgetView>
+    <div className="content-sidebar" role="complementary">
+      <WidgetView title="Search" isOpen={true}>
+        <SearchForm />
+      </WidgetView>
 
-          <WidgetView title="Recent Posts">
-            <ul>
-              {sidebarData.recentPosts.map((post: Content, idx) => {
-                return (
-                  <li key={idx}>
-                    <Link href={`/${post.slug}`}>{post.title}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </WidgetView>
+      <WidgetView title="Recent Posts">
+        {/* <ul> */}
+        {/*   {sidebarData.recentPosts.map((post: Content, idx) => { */}
+        {/*     return ( */}
+        {/*       <li key={idx}> */}
+        {/*         <Link href={`/${post.slug}`}>{post.title}</Link> */}
+        {/*       </li> */}
+        {/*     ); */}
+        {/*   })} */}
+        {/* </ul> */}
+      </WidgetView>
 
-          <WidgetView title="Tags">
-            <div className="tagcloud">
-              {sidebarData.tags.map((tag: Tag, idx) => {
-                return (
-                  <Link
-                    key={idx}
-                    href={`/list/${tag.slug}`}
-                    style={{ fontSize: `${fontSizes[idx]}rem` }}
-                  >
-                    {tag.title}{" "}
-                  </Link>
-                );
-              })}
-            </div>
-          </WidgetView>
-        </div>
-      )}
-    </>
+      <WidgetView title="Tags">
+        {/* <div className="tagcloud"> */}
+        {/*   {sidebarData.tags.map((tag: Tag, idx) => { */}
+        {/*     return ( */}
+        {/*       <Link */}
+        {/*         key={idx} */}
+        {/*         href={`/list/${tag.slug}`} */}
+        {/*         style={{ fontSize: `${fontSizes[idx]}rem` }} */}
+        {/*       > */}
+        {/*         {tag.title}{" "} */}
+        {/*       </Link> */}
+        {/*     ); */}
+        {/*   })} */}
+        {/* </div> */}
+      </WidgetView>
+    </div>
   );
 };
 

@@ -32,9 +32,9 @@ const LoadingIndicator = ({ isLoading }: LoadingIndicatorProps) => {
       {isLoading && (
         <div className={"loading-holder"}>
           <h2>Loading{loadingDecimals[loadingDecimalDisplay]}</h2>
-          <i className="fa fa-spin">
-            <FontAwesomeIcon icon={"circle-notch"} />
-          </i>
+          {/* <i className="fa fa-spin"> */}
+          {/*   <FontAwesomeIcon icon={"circle-notch"} /> */}
+          {/* </i> */}
         </div>
       )}
     </div>
