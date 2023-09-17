@@ -3,14 +3,14 @@ import "../styles/sassy.css";
 
 import React, { useEffect, useState } from "react";
 import { AppProps } from "next/app";
-import Footer from "~/components/Footer";
+import Footer from "../components/Footer";
 import * as ReactGA from "react-ga";
 
 import { Provider } from "react-redux";
-import { appStore } from "~/redux/app-reducers";
-import { themes } from "~/utils";
-import Brand from "~/components/Brand";
-import NavMain from "~/components/NavMain";
+import { appStore } from "../redux/app-reducers";
+import { themes } from "../utils";
+import Brand from "../components/Brand";
+import NavMain from "../components/NavMain";
 import { useRouter } from "next/router";
 
 interface CurrentThemeDataType {
