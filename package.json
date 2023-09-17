@@ -21,7 +21,9 @@
     "test": "jest",
     "tailwind": "npx tailwindcss -i ./src/styles/styles.css -o ./src/styles/app.css --watch",
     "type-check": "tsc",
-    "validate": "npm-run-all --parallel lint lint:css format type-check test"
+    "validate": "npm-run-all --parallel lint lint:css format type-check test",
+    "sassy": "sass src/styles/sassy.scss src/styles/sassy.css --watch",
+    "styles": "yarn run tailwind && yarn run sassy"
   },
   "husky": {
     "hooks": {
@@ -35,6 +37,7 @@
     "@heroicons/react": "^2.0.13",
     "@reduxjs/toolkit": "^1.8.5",
     "@svgr/webpack": "5.4.0",
+    "firebase": "^10.4.0",
     "lodash": "^4.17.19",
     "moment": "^2.29.4",
     "next": "^12.0",
@@ -78,6 +81,7 @@
     "eslint": "^8.0.1",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-kentcdodds": "14.14.2",
+    "eslint-config-next": "^13.4.19",
     "eslint-config-prettier": "6.11.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-config-steelbrain": "10.0.0-beta2",
