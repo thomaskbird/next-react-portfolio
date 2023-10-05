@@ -5,14 +5,10 @@ import { Api } from "../services/Api";
 import LoadingIndicator from "./LoadingIndicator";
 import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
-import fontSizeGenerator from "~/utils/fontSizeGenerator";
 import Link from "next/link";
 
 const generateFontSizes = (numTags: number) => {
   const fontSizes = [];
-  for (let i = 0; i < numTags; i++) {
-    fontSizes.push(fontSizeGenerator());
-  }
 
   return fontSizes;
 };

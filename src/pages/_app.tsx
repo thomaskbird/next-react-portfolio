@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 import * as ReactGA from "react-ga";
 
 import { Provider } from "react-redux";
-import { appStore } from "../redux/app-reducers";
 import { themes } from "../utils";
 import Brand from "../components/Brand";
 import NavMain from "../components/NavMain";
@@ -55,60 +54,58 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     if (path !== router.pathname) {
       setPageData();
-      changeHeader();
+      // changeHeader();
     }
   }, [router.pathname]);
 
   return (
-    <Provider store={appStore}>
-      <div className={`overall-wrapper ${currentTheme}`}>
+    <div className={`overall-wrapper ${currentTheme}`}>
+      <div
+        className={
+          isTop
+            ? "header-wrap animate-height"
+            : "header-wrap animate-height hide"
+        }
+      >
         <div
-          className={
-            isTop
-              ? "header-wrap animate-height"
-              : "header-wrap animate-height hide"
-          }
+          className="container-outer nav-public"
+          style={{
+            backgroundColor: currentThemeData?.headerBackgroundColor,
+            borderColor: currentThemeData?.headerBorderColor,
+          }}
         >
-          <div
-            className="container-outer nav-public"
-            style={{
-              backgroundColor: currentThemeData?.headerBackgroundColor,
-              borderColor: currentThemeData?.headerBorderColor,
-            }}
-          >
-            <div className="container-inner">
-              <div className="nav-public-left">
-                <Brand />
-              </div>
-              <div
-                className={`nav-public-right ${isMobileNavOpen ? "open" : ""}`}
-              >
-                <NavMain
-                  onToggleMobileNav={() => setIsMobileNavOpen(!isMobileNavOpen)}
-                  onCloseMobileNav={() => setIsMobileNavOpen(false)}
-                />
-              </div>
+          <div className="container-inner">
+            <div className="nav-public-left">
+              <Brand />
             </div>
-          </div>
-          <div className="container-outer whats-new">
-            <div className="container-inner">
-              <b>Whats new:</b> Open to new contract remote roles!
+            <div
+              className={`nav-public-right ${isMobileNavOpen ? "open" : ""}`}
+            >
+              <NavMain
+                onToggleMobileNav={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                onCloseMobileNav={() => setIsMobileNavOpen(false)}
+              />
             </div>
           </div>
         </div>
-
-        <div
-          className="container-outer main-page-content"
-          onScroll={(evt) => handleAppScroll(evt)}
-        >
-          <div className={`container-inner`}>
-            <Component {...pageProps} />
+        <div className="container-outer whats-new">
+          <div className="container-inner">
+            <b>Whats new:</b> Open to new contract remote roles!
           </div>
         </div>
-
-        <Footer />
       </div>
-    </Provider>
+
+      <div
+        className="container-outer main-page-content"
+        onScroll={(evt) => handleAppScroll(evt)}
+      >
+        <div className={`container-inner`}>
+          <Component {...pageProps} />
+        </div>
+      </div>
+
+      <Footer />
+    </div>
   );
 };
 

@@ -1,14 +1,12 @@
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import SidebarView from "../components/SidebarView";
-import { Api } from "../services/Api";
-import LoadingIndicator from "../components/LoadingIndicator";
 import { Job } from "../types/types";
 import ResumeItem from "../components/ResumeItem";
 import ResumeAbout from "../components/ResumeAbout";
 import { getDocs, QuerySnapshot } from "firebase/firestore";
-import { queryAllJobsOrdered } from "~/services/firebase";
-import { makeArrayFromSnapshot } from "~/utils/makeNewArray";
+import { queryAllJobsOrdered } from "../services/firebase";
+import { makeArrayFromSnapshot } from "../utils/makeNewArray";
 
 interface ResumeViewProps {
   /**

@@ -1,0 +1,10 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 4.6.6deb5ubuntu0.5
+ */
+
+// Database 'thomaskbird'
+
+// thomaskbird.uploads
+
+[{"id":"0","title":"blobid1489813372577.png","body":"","filename":"blobid1489813372577.png","type":"image\/png","created_at":"2017-03-18 04:57:30","updated_at":"2017-03-18 04:57:30","deleted_at":null}, {"id":"0","title":"blobid1489813448541.png","body":"","filename":"blobid1489813448541.png","type":"image\/png","created_at":"2017-03-18 04:58:46","updated_at":"2017-03-18 04:58:46","deleted_at":null}, {"id":"0","title":"blobid1489813461632.png","body":"","filename":"blobid1489813461632.png","type":"image\/png","created_at":"2017-03-18 04:58:59","updated_at":"2017-03-18 04:58:59","deleted_at":null}, {"id":"0","title":"original-markup-pic.png","body":"","filename":"original-markup-pic.png","type":"image\/png","created_at":"2017-11-08 00:00:17","updated_at":"2017-11-08 00:00:17","deleted_at":null}, {"id":"0","title":"original-markup-pic.png","body":"","filename":"original-markup-pic.png","type":"image\/png","created_at":"2017-11-08 00:01:54","updated_at":"2017-11-08 00:01:54","deleted_at":null}]

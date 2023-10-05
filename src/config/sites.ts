@@ -1,4 +1,9 @@
-import { SiteTypes } from "~/types/types";
+type SiteTypes = {
+  dateTimeFormat: string;
+  momentFormat: string;
+  momentFormatWoTimestamp: string;
+  dayFormat: string;
+};
 
 const config: SiteTypes = {
   dateTimeFormat: "y-MM-dd HH:mm:ss",
